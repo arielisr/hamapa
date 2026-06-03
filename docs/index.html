@@ -69,6 +69,29 @@ html, body {
   transform: translateY(-34px);
 }
 
+.content.contact {
+  width: fit-content;
+  min-width: unset;
+  max-width: 90vw;
+  padding: 12px 18px;
+  align-self: center;
+  direction: ltr;
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  white-space: nowrap;
+}
+
+.contact {
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1.45;
+  font-size: clamp(14px, 1.2vw, 18px);
+  direction: ltr;
+  text-align: center;
+}
+
 .content.he {
   direction: rtl;
   text-align: right;
@@ -94,10 +117,15 @@ p {
 }
 
 .contact {
-  margin-top: 16px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1.45;
   font-size: clamp(14px, 1.2vw, 18px);
   direction: ltr;
+  text-align: center;
 }
+
 
 .contact a {
   color: #ffffff;
@@ -328,53 +356,76 @@ screen and (max-width: 900px) {
 
 }
 
-@media (max-width: 900px), (orientation: portrait), (max-aspect-ratio: 1/1) {
+@media screen and (orientation: portrait),
+screen and (max-aspect-ratio: 1/1),
+screen and (max-width: 900px) {
+
+  .bg-landscape {
+    display: none;
+  }
+
+  .bg-portrait {
+    display: block;
+  }
+
   .content-wrap {
     left: 4vw;
     right: 4vw;
-    top: auto;
-    bottom: 2.5vh;
+    top: 52vh;
+    bottom: auto;
+    max-height: 46vh;
+    overflow-y: auto;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
+    padding-bottom: 10px;
   }
 
   .content {
     width: 100%;
-    padding: 12px 16px;
+    padding: 11px 15px;
     border-radius: 18px;
   }
 
+  .content.contact {
+	  width: fit-content;
+	  max-width: 92vw;
+	  align-self: center;
+	  transform: none;
+	  order: 1;
+	  padding: 8px 14px;
+	}
+
   .content.he {
-    order: 1;
+    order: 2;
   }
 
   .content.en {
     transform: none;
-    order: 2;
+    order: 3;
   }
-
+  
   h1 {
-    margin-bottom: 6px;
-    font-size: clamp(17px, 4.2vw, 23px);
-    line-height: 1.05;
+    margin-bottom: 5px;
+    font-size: clamp(16px, 4vw, 22px);
+    line-height: 1.04;
   }
 
   h2 {
-    margin-bottom: 8px;
-    font-size: clamp(13px, 3.4vw, 18px);
-    line-height: 1.15;
+    margin-bottom: 6px;
+    font-size: clamp(12px, 3.2vw, 17px);
+    line-height: 1.12;
   }
 
   p {
-    margin-bottom: 6px;
-    font-size: clamp(12px, 3vw, 15px);
-    line-height: 1.25;
+    margin-bottom: 5px;
+    font-size: clamp(11px, 2.9vw, 14px);
+    line-height: 1.2;
   }
 
   .contact {
-    margin-top: 6px;
-    font-size: clamp(12px, 3vw, 15px);
+    margin-top: 5px;
+    font-size: clamp(11px, 2.9vw, 14px);
   }
 
   .globe-shine {
@@ -410,20 +461,20 @@ screen and (max-width: 900px) {
   }
 }
 
-@media (max-height: 720px) and (max-width: 900px) {
+@media screen and (max-height: 720px) and (max-width: 900px) {
   .content-wrap {
-    bottom: 1.5vh;
-    gap: 6px;
+    top: 46vh;
+    max-height: 52vh;
   }
 
   .content {
-    padding: 10px 14px;
+    padding: 9px 13px;
   }
 
-  h1 { font-size: clamp(16px, 3.8vw, 21px); }
-  h2 { font-size: clamp(12px, 3vw, 16px); }
-  p { font-size: clamp(11px, 2.7vw, 14px); line-height: 1.2; }
-  .contact { font-size: clamp(11px, 2.7vw, 14px); }
+  h1 { font-size: clamp(15px, 3.7vw, 20px); }
+  h2 { font-size: clamp(11px, 2.9vw, 15px); }
+  p { font-size: clamp(10px, 2.6vw, 13px); line-height: 1.16; }
+  .contact { font-size: clamp(10px, 2.6vw, 13px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -465,8 +516,15 @@ screen and (max-width: 900px) {
   </div>
 
   <main class="content-wrap">
+	<section class="content contact">
+<div class="contact">
+  <h2>Contact:</h2>
+  <a href="mailto:support@hamapa.co.il">support@hamapa.co.il</a>
+</div>
+    </section>
+
     <section class="content he">
-      <h1>א.א. המפה - שירותי מיפוי ואינטרנט</h1>
+      <h1>א.א. המפה (2010) בע"מ</h1>
       <h2>פתרונות תוכנה, מידע רפואי ובריאות דיגיטלית</h2>
 
       <p>
@@ -478,7 +536,7 @@ screen and (max-width: 900px) {
       </p>
     </section>
 	<section class="content en">
-      <h1>A.A. HAMAPA LTD</h1>
+      <h1>A.A. HAMAPA (2010) LTD</h1>
       <h2>Software, medical data and digital health solutions</h2>
 
       <p>
@@ -488,12 +546,7 @@ screen and (max-width: 900px) {
       <p>
         Digital tools and data-driven solutions for medical research and health organizations.
       </p>
-
-      <div class="contact">
-        Contact: <a href="mailto:support@hamapa.co.il">support@hamapa.co.il</a>
-      </div>
     </section>
-
     
   </main>
 </section>
