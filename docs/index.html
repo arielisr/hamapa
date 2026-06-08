@@ -551,7 +551,7 @@ screen and (max-width: 900px) {
     const isLandscape = window.matchMedia("(orientation: landscape) and (min-width: 901px) and (min-aspect-ratio: 1/1)").matches;
     
     // 2. Select the correct video file based on orientation
-    const videoSource = isLandscape ? "video_landscape.mp4" : "video.mp4";
+    const videoSource = isLandscape ? "video.mp4" : "video_portrait.mp4";
     
     // 3. Inject the source into the video element
     const sourceEl = document.createElement("source");
